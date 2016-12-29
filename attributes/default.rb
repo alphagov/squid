@@ -55,6 +55,7 @@ default['squid']['logformats'] = {}
 default['squid']['access_log_option'] = 'squid'
 
 default['squid']['enable_ldap']       = false
+default['squid']['enable_snmp_local'] = false
 default['squid']['ldap_host']         = nil   # 'ldap.here.com'
 default['squid']['ldap_basedn']       = nil   # 'dc=here,dc=com'
 default['squid']['ldap_binddn']       = nil   # 'uid=some-user,ou=People,dc=here,dc=com'
