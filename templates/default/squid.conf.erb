@@ -52,6 +52,10 @@ acl <%= url[0] %> <%= url[1] %> <%= url[2] %>
 http_access <%= acl[0] %> <%= acl[1] %> <%= acl[2] %>
 <% end %>
 
+<% @extra_http_access_lines.each do |line| %>
+<%= line %>
+<% end %>
+
 http_access allow manager localhost
 http_access deny manager
 http_access allow purge localhost
