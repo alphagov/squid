@@ -93,6 +93,8 @@ file "#{node['squid']['config_dir']}/msntauth.conf" do
   action :delete
 end
 
+extra_http_access_lines = node['squid']['extra_http_access_lines'].select { |x| x.match(/^http_access /) }
+
 # squid config
 template node['squid']['config_file'] do
   source 'squid.conf.erb'
@@ -104,6 +106,7 @@ template node['squid']['config_file'] do
         host_acl: host_acl,
         url_acl: url_acl,
         acls: acls,
+        extra_http_access_lines: extra_http_access_lines,
         directives: node['squid']['directives'],
         localnets: node['squid']['localnets'],
         log_module: node['squid']['log_module'],
